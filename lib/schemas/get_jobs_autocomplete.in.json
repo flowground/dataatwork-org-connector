@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "begins_with": {
+            "required": false,
+            "type": "string"
+        },
+        "contains": {
+            "required": false,
+            "type": "string"
+        },
+        "ends_with": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

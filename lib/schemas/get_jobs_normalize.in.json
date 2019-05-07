@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "job_title": {
+            "required": true,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        }
+    }
+}

@@ -1,0 +1,255 @@
+{
+    "title": "Open Skills",
+    "description": "A complete and standard data store for canonical and emerging skills, knowledge, abilities, tools, technolgies, and how they relate to jobs.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/dataatwork.org/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://api.dataatwork.org/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_jobs": {
+            "main": "./lib/actions/get_jobs.js",
+            "title": "Job Titles and Descriptions",
+            "description": "Retrieves the names, descriptions, and UUIDs of all job titles.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_jobs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_jobs_autocomplete": {
+            "main": "./lib/actions/get_jobs_autocomplete.js",
+            "title": "Job Title Autocomplete",
+            "description": "Retrieves the names, descriptions, and UUIDs of all job titles matching a given search criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_jobs_autocomplete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_jobs_normalize": {
+            "main": "./lib/actions/get_jobs_normalize.js",
+            "title": "Job Title Normalization",
+            "description": "Retrieves the canonical job title for a synonymous job title",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_jobs_normalize.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_jobs_unusual_titles": {
+            "main": "./lib/actions/get_jobs_unusual_titles.js",
+            "title": "Unusual Job Titles",
+            "description": "Retrieves a list of unusual job titles and the UUIDs of their canonical jobs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_jobs_unusual_titles.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_jobs__id_": {
+            "main": "./lib/actions/get_jobs__id_.js",
+            "title": "Job Title and Description",
+            "description": "Retrieves the name, description, and UUID of a job by specifying its O*NET SOC Code or UUID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_jobs__id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_jobs__id__related_jobs": {
+            "main": "./lib/actions/get_jobs__id__related_jobs.js",
+            "title": "Jobs Associated with a Job",
+            "description": "Retrieves a collection of jobs associated with a specified job.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_jobs__id__related_jobs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_jobs__id__related_skills": {
+            "main": "./lib/actions/get_jobs__id__related_skills.js",
+            "title": "Skills Associated with a Job",
+            "description": "Retrieves a collection of skills associated with a specified job.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_jobs__id__related_skills.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_skills": {
+            "main": "./lib/actions/get_skills.js",
+            "title": "Skill Names and Descriptions",
+            "description": "Retrieve the names, descriptions, and UUIDs of all skills.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_skills.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_skills_autocomplete": {
+            "main": "./lib/actions/get_skills_autocomplete.js",
+            "title": "Skill Name Autocomplete",
+            "description": "Retrieves the names, descriptions, and UUIDs of all skills matching a given search criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_skills_autocomplete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_skills_normalize": {
+            "main": "./lib/actions/get_skills_normalize.js",
+            "title": "Skill Name Normalization",
+            "description": "Retrieves the canonical skill name for a synonymous skill name",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_skills_normalize.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_skills__id_": {
+            "main": "./lib/actions/get_skills__id_.js",
+            "title": "Skill Name and Description",
+            "description": "Retrieves the name, description, and UUID of a job by specifying its UUID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_skills__id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_skills__id__related_jobs": {
+            "main": "./lib/actions/get_skills__id__related_jobs.js",
+            "title": "Jobs Associated with a Skill",
+            "description": "Retrieves a collection of jobs associated with a specified skill.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_skills__id__related_jobs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_skills__id__related_skills": {
+            "main": "./lib/actions/get_skills__id__related_skills.js",
+            "title": "Skills Associated with a Skill",
+            "description": "Retrieves a collection of skills associated with a specified skill.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_skills__id__related_skills.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
